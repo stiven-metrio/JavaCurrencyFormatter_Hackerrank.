@@ -6,6 +6,7 @@
 package javacurrencyformatter_hackerrank;
 
 import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -24,13 +25,20 @@ public class JavaCurrencyFormatter_Hackerrank {
         scanner.close();
 
         // Write your code here.
-        NumberFormat usFormatter = NumberFormat.getCurrencyInstance();
-        String us = usFormatter.format(payment);
+        NumberFormat usFormatter = NumberFormat.getCurrencyInstance(Locale.US);
+        NumberFormat indiaFormatter = NumberFormat.getCurrencyInstance(new Locale("en","IN"));
+        NumberFormat chinaFormatter = NumberFormat.getCurrencyInstance(Locale.CHINA);
+        NumberFormat franceFormatter = NumberFormat.getCurrencyInstance(Locale.FRANCE);
         
+        String us = usFormatter.format(payment);
+        String india = indiaFormatter.format(payment);
+        String china = chinaFormatter.format(payment);
+        String france = franceFormatter.format(payment);
+                
         System.out.println("US: " + us);
-        //System.out.println("India: " + india);
-        //System.out.println("China: " + china);
-        //System.out.println("France: " + france);
+        System.out.println("India: " + india);
+        System.out.println("China: " + china);
+        System.out.println("France: " + france);
     }
     
 }
